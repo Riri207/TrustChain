@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 export default function Navbar() {
@@ -8,7 +7,7 @@ export default function Navbar() {
     { name: "Home", href: "#home" },
     { name: "Campaigns", href: "#campaigns" },
     { name: "Our Impact", href: "#impact" },
-    { name: "Transparency", href: "#transparency" },
+    { name: "How it Works", href: "#how-it-works" },
     { name: "About", href: "#about" },
   ];
 
@@ -52,22 +51,14 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop Login and Register */}
+        {/* Desktop Login */}
         <div className="hidden shrink-0 items-center gap-3 md:flex">
           <a
             href="/login"
-            className="rounded-full border border-emerald-600 px-5 py-3 font-semibold text-emerald-900 transition hover:bg-emerald-50"
+            className="rounded-full bg-green-100 px-6 py-3 font-semibold text-white transition hover:bg-emerald-800"
           >
             <span aria-hidden="true">♙ </span>
             Login
-          </a>
-
-          <a
-            href="/register"
-            className="rounded-full bg-emerald-700 px-5 py-3 font-semibold text-white transition hover:bg-emerald-800"
-          >
-            <span aria-hidden="true">♙ </span>
-            Register
           </a>
         </div>
 
@@ -115,21 +106,13 @@ export default function Navbar() {
               </a>
             ))}
 
-            <div className="mt-3 grid grid-cols-2 gap-3">
+            <div className="mt-3">
               <a
                 href="/login"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-full border border-emerald-600 px-4 py-3 text-center font-semibold text-emerald-800"
+                className="block w-full rounded-full bg-emerald-700 px-4 py-3 text-center font-semibold text-white"
               >
                 Login
-              </a>
-
-              <a
-                href="/register"
-                onClick={() => setMenuOpen(false)}
-                className="rounded-full bg-emerald-700 px-4 py-3 text-center font-semibold text-white"
-              >
-                Register
               </a>
             </div>
           </div>
