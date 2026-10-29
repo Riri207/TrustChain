@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LanguageSelector from "./LanguageSelector";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -6,13 +7,14 @@ export default function Navbar() {
   const links = [
     { name: "Home", href: "#home" },
     { name: "Campaigns", href: "#campaigns" },
+     { name: "Donate", href: "#donate" },
     { name: "Our Impact", href: "#impact" },
     { name: "How it Works", href: "#how-it-works" },
     { name: "About", href: "#about" },
   ];
 
   return (
-    <header className="relative z-50 w-full bg-white shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       <nav className="mx-auto flex max-w-[1500px] items-center justify-between px-5 py-3 sm:px-8 lg:px-12">
 
         {/* Logo and tagline */}
@@ -24,7 +26,7 @@ export default function Navbar() {
             🌿
           </div>
 
-          <div>
+          <div translate="no">
             <h1 className="text-xl font-bold tracking-tight text-emerald-950 sm:text-2xl lg:text-3xl">
               TrustChain
             </h1>
@@ -51,31 +53,36 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop Login */}
-        <div className="hidden shrink-0 items-center gap-3 md:flex">
-          <a
-            href="/login"
-            className="rounded-full bg-green-100 px-6 py-3 font-semibold text-white transition hover:bg-emerald-800"
-          >
-            <span aria-hidden="true">♙ </span>
-            Login
-          </a>
-        </div>
+        {/* Right side: Login + Language + Mobile button */}
+        <div className="flex items-center gap-3">
+          {/* Desktop Login */}
+          <div className="hidden shrink-0 items-center gap-3 md:flex">
+            <a
+              href="/login"
+              className="rounded-full bg-green-100 px-6 py-3 font-semibold text-emerald-800 transition hover:bg-emerald-200"
+            >
+              ♙ Login
+            </a>
+          </div>
 
-        {/* Mobile menu button */}
-        <button
-          type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          className="rounded-lg border border-emerald-200 p-2 text-emerald-900 md:hidden"
-        >
-          {menuOpen ? (
-            <span className="text-2xl">✕</span>
-          ) : (
-            <span className="text-2xl">☰</span>
-          )}
-        </button>
+          {/* Language globe (right of Login) */}
+          <LanguageSelector />
+
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            className="rounded-lg border border-emerald-200 p-2 text-emerald-900 md:hidden"
+          >
+            {menuOpen ? (
+              <span className="text-2xl">✕</span>
+            ) : (
+              <span className="text-2xl">☰</span>
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Tablet navigation */}
