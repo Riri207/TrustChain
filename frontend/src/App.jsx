@@ -11,6 +11,7 @@ import FAQsSection from "./components/FAQs.jsx";
 import AboutUs from "./components/AboutUs.jsx";
 
 
+
 function App() {
   return (
     <>
@@ -24,6 +25,7 @@ function App() {
       <Blog/>
       <FAQsSection/>
       <AboutUs/>
+      
     </>
   );
 }
