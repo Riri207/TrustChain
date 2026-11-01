@@ -5,9 +5,10 @@ import AboutUs from "./components/layout/AboutUs";
 import ScrollToHash from "./components/layout/ScrollToHash";
 
 import Home from "./pages/Home";
-//import Campaigns from "./pages/Campaigns";//
-//import Impact from "./pages/Impact";//
+import CampaignsPage from "./pages/CampaignsPage";
+//import Impact from "./pages/Impact";
 import Login from "./pages/Login";
+import CreateCampaign from "./pages/CreateCampaign";
 
 function App() {
   return (
@@ -17,8 +18,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/campaigns" element={<CampaignsPage />} />
+       <Route path="/create-campaign" element={<CreateCampaign />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+
 
       <AboutUs />
     </>

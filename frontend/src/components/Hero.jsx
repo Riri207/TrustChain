@@ -76,7 +76,8 @@ export default function Hero() {
           src={slide.image}
           alt=""
           aria-hidden="true"
-          className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700 ${
+          className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity
+             duration-600 ${
             index === activeSlide ? "opacity-100" : "opacity-0"
           }`}
         />

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const campaigns = [
+ export const campaigns = [
   {
     id: 1,
     image: "/images/assam flood.png",
