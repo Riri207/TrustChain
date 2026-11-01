@@ -1,34 +1,28 @@
+import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import CampaignSection from "./components/CampaignSection.jsx";
-import CreateCampaign from "./components/CreateCampaign.jsx";
-import HowItWorks from "./components/HowItWorks";
-import OurImpact from "./components/OurImpact";
-import DonationTicker from "./components/DonationTicker";
-import Blog from "./components/Blog";
-import FAQsSection from "./components/FAQs.jsx";
-import AboutUs from "./components/AboutUs.jsx";
+import Navbar from "./components/layout/Navbar";
+import AboutUs from "./components/layout/AboutUs";
+import ScrollToHash from "./components/layout/ScrollToHash";
 
-
+import Home from "./pages/Home";
+//import Campaigns from "./pages/Campaigns";//
+//import Impact from "./pages/Impact";//
+import Login from "./pages/Login";
 
 function App() {
   return (
     <>
+      <ScrollToHash />
       <Navbar />
-      <Hero />
-      <CampaignSection/>
-      <CreateCampaign/>
-      <HowItWorks/>
-      <OurImpact/>
-      <DonationTicker/>
-      <Blog/>
-      <FAQsSection/>
-      <AboutUs/>
-      
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+      <AboutUs />
     </>
   );
 }
 
 export default App;
-

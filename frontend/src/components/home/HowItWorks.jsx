@@ -61,7 +61,7 @@ const features = [
 
 export default function HowItWorks() {
   return (
-    <main className="bg-white">
+    <main id="how-it-works" className="scroll-mt-24 bg-white">
       {/* Header */}
       <section className="relative overflow-hidden bg-gradient-to-br from-emerald-100 via-emerald-50 to-white px-4 py-20 sm:px-8 lg:py-28">
         <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-emerald-200/50 blur-3xl" />

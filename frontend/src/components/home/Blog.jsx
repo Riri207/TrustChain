@@ -43,7 +43,7 @@ const BlogCard = ({ blog }) => (
 
 const BlogSection = () => {
   return (
-    <section className="bg-gray-50 py-16 px-6">
+    <section id="blog" className="scroll-mt-24 bg-gray-50 py-16 px-6">
       <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1fr_2fr] items-center">
         {/* Left text */}
         <div>

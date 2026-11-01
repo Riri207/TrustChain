@@ -113,12 +113,7 @@ export default function Hero() {
               <span aria-hidden="true">→</span>
             </a>
 
-            <a
-              href="#transparency"
-              className="inline-flex min-h-11 items-center justify-center rounded-full border border-emerald-700 px-5 py-3 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-100 sm:px-6"
-            >
-              How It Works
-            </a>
+           
           </div>
 
           <p className="mt-4 text-xs font-medium text-emerald-950/75 sm:text-sm">

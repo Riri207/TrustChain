@@ -68,7 +68,7 @@ const AboutUs = () => {
   const [currency, setCurrency] = useState("INR");
 
   return (
-    <footer className="bg-green-50 pt-16 pb-8 px-6">
+    <footer id="about" className="scroll-mt-24 bg-green-50 pt-16 pb-8 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Top area: link columns + currency/social */}
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">

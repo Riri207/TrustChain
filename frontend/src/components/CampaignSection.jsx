@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 const campaigns = [
   {
@@ -13,16 +14,15 @@ const campaigns = [
     image: "/images/child nutrition nigeria.png",
     category: "NUTRITION",
     title: "Child nutrition and emergency support",
-    description:
-      "Support initiatives creating healthcare for children.",
+    description: "Support initiatives creating healthcare for children.",
   },
   {
     id: 3,
     image: "/images/Cry india.png",
-    category: "CHILDREN`S WELLFARE,EDUCATION AND PROTECTION",
-    title: "Children welllfare and eduaction",
+    category: "CHILDREN'S WELFARE, EDUCATION & PROTECTION",
+    title: "Children welfare and education",
     description:
-      "Campaigns include returning children to school, girls' education, child rights and health and nutrition",
+      "Campaigns include returning children to school, girls' education, child rights and health and nutrition.",
   },
   {
     id: 4,
@@ -36,25 +36,81 @@ const campaigns = [
     id: 5,
     image: "/images/nepal flood.png",
     category: "DISASTER RELIEF",
-    title: "Disaster management and volunteer assistance ",
+    title: "Disaster management and volunteer assistance",
     description:
       "Explore initiatives connecting families in crisis with relief support.",
   },
   {
     id: 6,
-    image: "/images/somalia food.png",
+    image: "/images/somaliafood.png",
     category: "EMERGENCY FOOD SUPPORT",
-    title: "Emergency food support and assisatance  to those in need ",
+    title: "Emergency food support and assistance to those in need",
     description:
-      "Discover initiatives working to improve well-being of somalians .",
+      "Discover initiatives working to improve the well-being of Somalians.",
+  },
+  {
+    id: 7,
+    image: "/images/je.jpg",
+    category: "NATURAL DISASTERS",
+    title: "Japan earthquake survivors need urgent shelter, food & medical aid",
+    description: "Helping those in need during hard times.",
+  },
+  {
+    id: 8,
+    image: "/images/TurkeySyriaEarthquake.jpg",
+    category: "RESCUE FAMILIES FROM DISASTER",
+    title: "Turkey-Syria earthquake: help families who lost everything",
+    description: "Helping those in need during hard times.",
+  },
+  {
+    id: 9,
+    image: "/images/nepall flood.jpg",
+    category: "POST DISASTER SUPPORT",
+    title: "Nepal floods have washed away homes & livelihoods. Donate now",
+    description:
+      "Providing rations, medicines and shelter for families who lost their homes.",
+  },
+  {
+    id: 10,
+    image: "/images/girls.jpg",
+    category: "GIRLS EDUCATION",
+    title:
+      "Shiksha Na Ruke: help underprivileged girl students continue their education",
+    description:
+      "Helping young girls get education, access to healthcare and more.",
+  },
+  {
+    id: 11,
+    image: "/images/akshyapartra.jpg",
+    category: "FOOD AND SUPPLIES",
+    title: "Unlimited food for education",
+    description: "Providing meals and safe drinking water to kids.",
   },
 ];
 
+const INITIAL_COUNT = 6;
+
 export default function CampaignSection({ onSelectCampaign }) {
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleCampaigns = showAll
+    ? campaigns
+    : campaigns.slice(0, INITIAL_COUNT);
+
+  const handleToggle = () => {
+    // When collapsing, bring the user back to the top of this section
+    if (showAll) {
+      document
+        .getElementById("campaigns")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }
+    setShowAll(!showAll);
+  };
+
   return (
     <section
       id="campaigns"
-      className="bg-emerald-50/60 px-5 py-16 sm:px-8 lg:px-16 lg:py-20"
+      className="scroll-mt-24 bg-emerald-50/60 px-5 py-16 sm:px-8 lg:px-16 lg:py-20"
     >
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto mb-10 max-w-2xl text-center">
@@ -73,7 +129,7 @@ export default function CampaignSection({ onSelectCampaign }) {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {campaigns.map((campaign) => (
+          {visibleCampaigns.map((campaign) => (
             <article
               key={campaign.id}
               className="group overflow-hidden rounded-2xl border border-emerald-100 bg-white shadow-sm transition duration-300 hover:-translate-y-2 hover:border-emerald-300 hover:shadow-xl"
@@ -116,6 +172,28 @@ export default function CampaignSection({ onSelectCampaign }) {
             </article>
           ))}
         </div>
+
+        {/* View More / Show Less */}
+        {campaigns.length > INITIAL_COUNT && (
+          <div className="mt-12 flex justify-center">
+            <button
+              type="button"
+              onClick={handleToggle}
+              aria-expanded={showAll}
+              className="group flex items-center gap-2 rounded-full border-2 border-emerald-700 bg-white px-8 py-3 font-semibold text-emerald-800 transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-700 hover:text-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            >
+              {showAll ? "Show Less" : "View More"}
+              <span
+                aria-hidden="true"
+                className={`transition-transform duration-300 ${
+                  showAll ? "rotate-180" : ""
+                }`}
+              >
+                ↓
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
